@@ -1,0 +1,64 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="org.feedhenry.pushstarter">
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="org.feedhenry.pushstarter.permission.C2D_MESSAGE" />
+
+    <permission
+        android:name="org.jboss.aerogear.unifiedpush.helloworld.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+
+    <application
+        android:name=".PushStarterApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/MyTheme.Base"
+        tools:replace="android:icon">
+
+        <activity
+            android:name=".activities.SplashScreenActivity"
+            android:theme="@style/MyTheme.Fullscreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activities.RegisterActivity"
+            android:theme="@style/MyTheme.Base" />
+        <activity
+            android:name=".activities.MessagesActivity"
+            android:label="@string/notifications"
+            android:theme="@style/MyTheme.Base">
+            <intent-filter>
+                <action android:name="org.jboss.aerogear.unifiedpush.helloworld.activities.MessagesActivity" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <receiver
+            android:name="org.jboss.aerogear.android.unifiedpush.gcm.AeroGearGCMMessageReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+
+                <category android:name="org.feedhenry.pushstarter" />
+            </intent-filter>
+            <meta-data
+                android:name="DEFAULT_MESSAGE_HANDLER_KEY"
+                android:value="org.jboss.aerogear.unifiedpush.helloworld.handler.NotificationBarMessageHandler" />
+        </receiver>
+
+
+    </application>
+
+</manifest>
