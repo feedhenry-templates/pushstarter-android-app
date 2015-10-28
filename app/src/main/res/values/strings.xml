@@ -8,7 +8,7 @@
 
 -->
 <resources>
-    <string name="app_name">FeedHenry Push Started</string>
+    <string name="app_name">FeedHenry Push Starter</string>
     <string name="feedhenry_logo">FeedHenry Logo</string>
     <string name="notifications">Notifications</string>
     <string name="registering">Registering…</string>
