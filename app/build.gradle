@@ -1,3 +1,7 @@
+plugins {
+    id "com.github.hierynomus.license" version "0.12.0"
+}
+
 apply plugin: 'com.android.application'
 
 android {
@@ -13,7 +17,8 @@ android {
     }
 
     lintOptions {
-        abortOnError false
+        abortOnError true
+        disable 'OldTargetApi', 'GradleDependency'
     }
 
     buildTypes {
@@ -24,7 +29,13 @@ android {
     }
 }
 
+license {
+    header rootProject.file('misc/HEADER')
+    strictCheck true
+}
+
 dependencies {
-    compile 'com.android.support:appcompat-v7:22+'
+    compile 'com.android.support:appcompat-v7:22.2.0'
     compile 'com.feedhenry:fh-android-sdk:2.5.0'
+    compile 'org.jboss.aerogear:aerogear-android-push:2.2.1'
 }
