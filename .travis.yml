@@ -13,8 +13,6 @@ android:
     - extra-google-m2repository
     - extra-android-m2repository
     - extra-android-support
-    - sys-img-armeabi-v7a-addon-google_apis-google-10
-    - sys-img-armeabi-v7a-addon-google_apis-google-15
     - sys-img-armeabi-v7a-addon-google_apis-google-16
     - sys-img-armeabi-v7a-addon-google_apis-google-17
     - sys-img-armeabi-v7a-addon-google_apis-google-18
@@ -26,8 +24,6 @@ android:
 
 env:
   matrix:
-    - ANDROID_EMULATOR=android-10 ANDROID_ABI=armeabi
-    - ANDROID_EMULATOR=android-15 ANDROID_ABI=armeabi-v7a
     - ANDROID_EMULATOR=android-16 ANDROID_ABI=armeabi-v7a
     - ANDROID_EMULATOR=android-17 ANDROID_ABI=armeabi-v7a
     - ANDROID_EMULATOR=android-18 ANDROID_ABI=armeabi-v7a
