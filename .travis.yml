@@ -1,5 +1,12 @@
 language: android
 
+env:
+  global:
+    # switch glibc to a memory conserving mode
+    - MALLOC_ARENA_MAX=2
+    # wait up to 10 minutes for adb to connect to emulator
+    - ADB_INSTALL_TIMEOUT=10
+
 jdk:
   - oraclejdk8
   - oraclejdk7
@@ -8,8 +15,9 @@ android:
   components:
     - platform-tools
     - tools
-    - build-tools-22.0.1
+    - build-tools-23.0.2
     - android-22
+    - android-23
     - extra-google-m2repository
     - extra-android-m2repository
     - extra-android-support
@@ -22,6 +30,10 @@ android:
     - sys-img-armeabi-v7a-addon-google_apis-google-22
     - extra-google-google_play_services
 
+licenses:
+    - 'android-sdk-license-.+'
+    - 'google-gdk-license-.+'
+
 env:
   matrix:
     - ANDROID_EMULATOR=android-16 ANDROID_ABI=armeabi-v7a
@@ -30,6 +42,13 @@ env:
     - ANDROID_EMULATOR=android-19 ANDROID_ABI=armeabi-v7a
     - ANDROID_EMULATOR=android-21 ANDROID_ABI=armeabi-v7a
     - ANDROID_EMULATOR=android-22 ANDROID_ABI=armeabi-v7a
+
+before_cache:
+  - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
+cache:
+  directories:
+    - $HOME/.gradle/caches/
+    - $HOME/.gradle/wrapper/
 
 before_script:
   - echo no | android create avd --force -n test -t $ANDROID_EMULATOR --abi $ANDROID_ABI
