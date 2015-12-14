@@ -17,8 +17,7 @@ android {
     }
 
     lintOptions {
-        abortOnError true
-        disable 'OldTargetApi', 'GradleDependency'
+        abortOnError false
     }
 
     buildTypes {
