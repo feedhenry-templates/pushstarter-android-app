@@ -17,11 +17,18 @@ package org.feedhenry.pushstarter;
 
 import android.app.Application;
 
+import com.feedhenry.sdk.FH;
+import com.feedhenry.sdk.FHActCallback;
+import com.feedhenry.sdk.FHResponse;
+import com.feedhenry.sdk.utils.FHLog;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 public class PushStarterApplication extends Application {
+
+    private static final String TAG = PushStarterApplication.class.getName();
 
     public static final String PUSH_MESSAGE_FROM_BACKGROUND = "PUSH_MESSAGE_FROM_BACKGROUND";
 
@@ -39,6 +46,21 @@ public class PushStarterApplication extends Application {
 
     public void addMessage(String newMessage) {
         messages.add(newMessage);
+    }
+
+    public void sendMetric(String pushMessageId) {
+        FH.sendPushMetrics(pushMessageId, new FHActCallback() {
+
+            @Override
+            public void success(FHResponse fhResponse) {
+                FHLog.i(TAG, "Push message was marked as open");
+            }
+
+            @Override
+            public void fail(FHResponse fhResponse) {
+                FHLog.w(TAG, "Push message could not marked as open");
+            }
+        });
     }
 
 }

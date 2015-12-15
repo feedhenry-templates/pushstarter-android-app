@@ -65,6 +65,7 @@ public class MessagesActivity extends AppCompatActivity implements MessageHandle
     @Override
     public void onMessage(Context context, Bundle bundle) {
         addNewMessage(bundle);
+        application.sendMetric(bundle.getString(UnifiedPushMessage.PUSH_MESSAGE_ID));
     }
 
     @Override

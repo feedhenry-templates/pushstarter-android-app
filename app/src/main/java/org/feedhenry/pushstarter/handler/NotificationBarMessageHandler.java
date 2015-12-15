@@ -46,6 +46,8 @@ public class NotificationBarMessageHandler implements MessageHandler {
         String message = bundle.getString(UnifiedPushMessage.ALERT_KEY);
 
         PushStarterApplication application = (PushStarterApplication) context.getApplicationContext();
+        application.sendMetric(extractPushMessageId(bundle));
+
         application.addMessage(message);
 
         notify(bundle);
@@ -56,7 +58,7 @@ public class NotificationBarMessageHandler implements MessageHandler {
                 context.getSystemService(Context.NOTIFICATION_SERVICE);
 
         String message = bundle.getString(UnifiedPushMessage.ALERT_KEY);
-        String pushMessageId = bundle.getString(UnifiedPushMessage.PUSH_MESSAGE_ID);
+        String pushMessageId = extractPushMessageId(bundle);
 
         Intent intent = new Intent(context, MessagesActivity.class)
                 .addFlags(PendingIntent.FLAG_UPDATE_CURRENT)
@@ -85,6 +87,10 @@ public class NotificationBarMessageHandler implements MessageHandler {
 
     @Override
     public void onError() {
+    }
+
+    private String extractPushMessageId(Bundle bundle) {
+        return bundle.getString(UnifiedPushMessage.PUSH_MESSAGE_ID);
     }
 
 }
