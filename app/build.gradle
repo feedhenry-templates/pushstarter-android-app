@@ -5,20 +5,19 @@ plugins {
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 22
-    buildToolsVersion "22.0.1"
+    compileSdkVersion 23
+    buildToolsVersion "23.0.2"
 
     defaultConfig {
         applicationId "org.feedhenry.pushstarter"
         minSdkVersion 16
-        targetSdkVersion 22
+        targetSdkVersion 23
         versionCode 1
         versionName "1.0"
     }
 
     lintOptions {
-        abortOnError true
-        disable 'OldTargetApi', 'GradleDependency'
+        abortOnError false
     }
 
     buildTypes {
@@ -35,7 +34,7 @@ license {
 }
 
 dependencies {
-    compile 'com.android.support:appcompat-v7:22.2.0'
-    compile 'com.feedhenry:fh-android-sdk:2.5.0'
-    compile 'org.jboss.aerogear:aerogear-android-push:2.2.1'
+    compile 'com.feedhenry:fh-android-sdk:3.0.0'
+    compile 'com.android.support:appcompat-v7:23.1.1'
+    compile 'org.jboss.aerogear:aerogear-android-push:2.2.2'
 }
