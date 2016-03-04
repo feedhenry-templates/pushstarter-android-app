@@ -20,7 +20,7 @@ If you do not have access to a RHMAP instance, you can sign up for a free instan
 
 ### RHMAP Studio
 
-You can create this project as a template inside of RHMAP Studio.  The full tutorial for setting up AeroGear UPS, registering on the Google Cloud Messaging network, and using the app can be found on the [RedHat Mobile docs](http://docs.feedhenry.com/v3/guides/using_push_notifications.html) site
+You can create this project as a template inside of RHMAP Studio.  The full tutorial for setting up AeroGear UPS, registering on the Google Cloud Messaging network, and using the app can be found on the [RedHat Mobile docs](http://docs.feedhenry.com/v3/guides/using_push_notifications.html) site.  
 
 ### Build instructions for Open Source Development
 If you wish to contribute to this template, the following information may be helpful; otherwise, RHMAP and its build facilities are the preferred solution.
@@ -56,7 +56,7 @@ This code will register the device with both AeroGear UnifiedPush Service AND Go
 
 ### Handling messages
 
-Messages are handled by implementations of the [MessageHandler](https://aerogear.org/docs/specs/aerogear-android-push/org/jboss/aerogear/android/unifiedpush/MessageHandler.html) interface which are registered with the `RegistrarManager`.  These classes are [MessagesActivity](/app/src/main/java/org/feedhenry/pushstarter/activities/MessagesActivity.java) and [NotificationBarMessageHandler](app/src/main/java/org/feedhenry/pushstarter/handler/NotificationBarMessageHandler.java).
+Messages are handled by implementations of the [MessageHandler](https://aerogear.org/docs/specs/aerogear-android-push/org/jboss/aerogear/android/unifiedpush/MessageHandler.html) interface which are registered with the `RegistrarManager`. These classes are [MessagesActivity](/app/src/main/java/org/feedhenry/pushstarter/activities/MessagesActivity.java) and [NotificationBarMessageHandler](app/src/main/java/org/feedhenry/pushstarter/handler/NotificationBarMessageHandler.java).
 
 In the `MessagesActivity` class the Activity switches between itself and the `NotificationBarMessageHandler` in the *onPause* and *onResume* methods.
 
