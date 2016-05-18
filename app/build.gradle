@@ -6,7 +6,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 23
-    buildToolsVersion "23.0.2"
+    buildToolsVersion "23.0.3"
 
     defaultConfig {
         applicationId "org.feedhenry.pushstarter"
@@ -33,8 +33,12 @@ license {
     strictCheck true
 }
 
+repositories {
+    mavenLocal()
+}
+
 dependencies {
-    compile 'com.feedhenry:fh-android-sdk:3.0.0'
-    compile 'com.android.support:appcompat-v7:23.1.1'
-    compile 'org.jboss.aerogear:aerogear-android-push:2.2.2'
+    compile 'com.feedhenry:fh-android-sdk:3.1.0-SNAPSHOT'
+    compile 'com.android.support:appcompat-v7:23.3.0'
+    compile 'org.jboss.aerogear:aerogear-android-push:3.0.0'
 }

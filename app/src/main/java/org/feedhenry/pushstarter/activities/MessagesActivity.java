@@ -67,15 +67,6 @@ public class MessagesActivity extends AppCompatActivity implements MessageHandle
         addNewMessage(bundle);
         application.sendMetric(bundle.getString(UnifiedPushMessage.PUSH_MESSAGE_ID));
     }
-
-    @Override
-    public void onDeleteMessage(Context context, Bundle message) {
-    }
-
-    @Override
-    public void onError() {
-    }
-
     private void addNewMessage(Bundle bundle) {
         String message = bundle.getString(UnifiedPushMessage.ALERT_KEY);
         application.addMessage(message);

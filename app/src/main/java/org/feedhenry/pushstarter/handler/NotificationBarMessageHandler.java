@@ -81,14 +81,6 @@ public class NotificationBarMessageHandler implements MessageHandler {
         mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());
     }
 
-    @Override
-    public void onDeleteMessage(Context context, Bundle arg0) {
-    }
-
-    @Override
-    public void onError() {
-    }
-
     private String extractPushMessageId(Bundle bundle) {
         return bundle.getString(UnifiedPushMessage.PUSH_MESSAGE_ID);
     }
