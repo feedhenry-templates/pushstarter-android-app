@@ -27,7 +27,7 @@ import org.feedhenry.pushstarter.R;
 import org.feedhenry.pushstarter.handler.NotificationBarMessageHandler;
 import org.jboss.aerogear.android.unifiedpush.MessageHandler;
 import org.jboss.aerogear.android.unifiedpush.RegistrarManager;
-import org.jboss.aerogear.android.unifiedpush.gcm.UnifiedPushMessage;
+import org.jboss.aerogear.android.unifiedpush.fcm.UnifiedPushMessage;
 
 public class MessagesActivity extends AppCompatActivity implements MessageHandler {
 
@@ -66,14 +66,6 @@ public class MessagesActivity extends AppCompatActivity implements MessageHandle
     public void onMessage(Context context, Bundle bundle) {
         addNewMessage(bundle);
         application.sendMetric(bundle.getString(UnifiedPushMessage.PUSH_MESSAGE_ID));
-    }
-
-    @Override
-    public void onDeleteMessage(Context context, Bundle message) {
-    }
-
-    @Override
-    public void onError() {
     }
 
     private void addNewMessage(Bundle bundle) {

@@ -40,6 +40,10 @@
         android:theme="@style/MyTheme.Base"
         tools:replace="android:icon">
 
+        <meta-data
+            android:name="DEFAULT_MESSAGE_HANDLER_KEY"
+            android:value="org.jboss.aerogear.unifiedpush.helloworld.handler.NotificationBarMessageHandler" />
+
         <activity
             android:name=".activities.SplashScreenActivity"
             android:theme="@style/MyTheme.Fullscreen">
@@ -61,21 +65,6 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
-        <receiver
-            android:name="org.jboss.aerogear.android.unifiedpush.gcm.AeroGearGCMMessageReceiver"
-            android:permission="com.google.android.c2dm.permission.SEND">
-            <intent-filter>
-                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
-
-                <category android:name="org.feedhenry.pushstarter" />
-            </intent-filter>
-            <meta-data
-                android:name="DEFAULT_MESSAGE_HANDLER_KEY"
-                android:value="org.feedhenry.pushstarter.handler.NotificationBarMessageHandler" />
-        </receiver>
-
 
     </application>
 

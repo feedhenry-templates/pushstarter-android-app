@@ -32,7 +32,7 @@ import org.feedhenry.pushstarter.PushStarterApplication;
 import org.feedhenry.pushstarter.R;
 import org.feedhenry.pushstarter.activities.MessagesActivity;
 import org.jboss.aerogear.android.unifiedpush.MessageHandler;
-import org.jboss.aerogear.android.unifiedpush.gcm.UnifiedPushMessage;
+import org.jboss.aerogear.android.unifiedpush.fcm.UnifiedPushMessage;
 
 public class NotificationBarMessageHandler implements MessageHandler {
 
@@ -97,13 +97,6 @@ public class NotificationBarMessageHandler implements MessageHandler {
         mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());
     }
 
-    @Override
-    public void onDeleteMessage(Context context, Bundle arg0) {
-    }
-
-    @Override
-    public void onError() {
-    }
 
     private String extractPushMessageId(Bundle bundle) {
         return bundle.getString(UnifiedPushMessage.PUSH_MESSAGE_ID);
