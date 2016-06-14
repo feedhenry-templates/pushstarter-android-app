@@ -57,7 +57,7 @@
             android:label="@string/notifications"
             android:theme="@style/MyTheme.Base">
             <intent-filter>
-                <action android:name="org.jboss.aerogear.unifiedpush.helloworld.activities.MessagesActivity" />
+                <action android:name="org.feedhenry.pushstarter.activities.MessagesActivity" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
@@ -73,7 +73,7 @@
             </intent-filter>
             <meta-data
                 android:name="DEFAULT_MESSAGE_HANDLER_KEY"
-                android:value="org.jboss.aerogear.unifiedpush.helloworld.handler.NotificationBarMessageHandler" />
+                android:value="org.feedhenry.pushstarter.handler.NotificationBarMessageHandler" />
         </receiver>
 
 

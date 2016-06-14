@@ -16,6 +16,7 @@
 package org.feedhenry.pushstarter;
 
 import android.app.Application;
+import android.util.Log;
 
 import com.feedhenry.sdk.FH;
 import com.feedhenry.sdk.FHActCallback;
@@ -25,6 +26,8 @@ import com.feedhenry.sdk.utils.FHLog;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.TimeUnit;
 
 public class PushStarterApplication extends Application {
 
@@ -38,6 +41,28 @@ public class PushStarterApplication extends Application {
     public void onCreate() {
         super.onCreate();
         messages = new ArrayList<String>();
+
+        final CountDownLatch latch = new CountDownLatch(1);
+
+        FH.init(getApplicationContext(), new FHActCallback() {
+            @Override
+            public void success(FHResponse fhResponse) {
+                latch.countDown();
+            }
+
+            @Override
+            public void fail(FHResponse fhResponse) {
+                Log.e("STARTUP", fhResponse.getErrorMessage(), fhResponse.getError());
+                latch.countDown();
+            }
+        });
+
+        try {
+            latch.await(5, TimeUnit.SECONDS);
+        } catch (InterruptedException e) {
+            Log.e("STARTUP", e.getMessage(), e);
+        }
+
     }
 
     public List<String> getMessages() {

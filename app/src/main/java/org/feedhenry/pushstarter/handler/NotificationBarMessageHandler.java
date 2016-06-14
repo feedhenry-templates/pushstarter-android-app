@@ -22,6 +22,11 @@ import android.content.Intent;
 import android.media.RingtoneManager;
 import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
+import android.util.Log;
+
+import com.feedhenry.sdk.FH;
+import com.feedhenry.sdk.FHActCallback;
+import com.feedhenry.sdk.FHResponse;
 
 import org.feedhenry.pushstarter.PushStarterApplication;
 import org.feedhenry.pushstarter.R;
@@ -40,20 +45,31 @@ public class NotificationBarMessageHandler implements MessageHandler {
     }
 
     @Override
-    public void onMessage(Context context, Bundle bundle) {
+    public void onMessage(final Context context, final Bundle bundle) {
         this.context = context;
 
-        String message = bundle.getString(UnifiedPushMessage.ALERT_KEY);
+        final String message = bundle.getString(UnifiedPushMessage.ALERT_KEY);
 
-        PushStarterApplication application = (PushStarterApplication) context.getApplicationContext();
-        application.sendMetric(extractPushMessageId(bundle));
+        FH.pushRegister(new FHActCallback() {
+            @Override
+            public void success(FHResponse fhResponse) {
+                PushStarterApplication application = (PushStarterApplication) context.getApplicationContext();
+                application.sendMetric(extractPushMessageId(bundle));
 
-        application.addMessage(message);
+                application.addMessage(message);
 
-        notify(bundle);
+                showMessage(bundle);
+            }
+
+            @Override
+            public void fail(FHResponse fhResponse) {
+                Log.e("NOTIFICATION", fhResponse.getErrorMessage());
+            }
+        });
+
     }
 
-    private void notify(Bundle bundle) {
+    private void showMessage(Bundle bundle) {
         NotificationManager mNotificationManager = (NotificationManager)
                 context.getSystemService(Context.NOTIFICATION_SERVICE);
 
