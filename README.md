@@ -1,4 +1,4 @@
-# Android Push Template
+# Android Push Template [![Build Status](https://travis-ci.org/feedhenry-templates/pushstarter-android-app.png)](https://travis-ci.org/feedhenry-templates/pushstarter-android-app)
 ---------
 Author: Daniel Passos (dpassos@redhat.com, daniel@passos.me)     
 Level: Intermediate  
