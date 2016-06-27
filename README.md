@@ -22,6 +22,11 @@ If you do not have access to a RHMAP instance, you can sign up for a free instan
 
 You can create this project as a template inside of RHMAP Studio.  The full tutorial for setting up AeroGear UPS, registering on the Google Cloud Messaging network, and using the app can be found on the [RedHat Mobile docs](http://docs.feedhenry.com/v3/guides/using_push_notifications.html) site.  
 
+### Firebase Cloud Messaging
+
+ * You need to have a valid Firebase Cloud Messaging project setup. Download the `google-services.json` file from the Firebase Console and put it into the `app` directory of your Android Application.
+ * You also need to use the `package` from the Firebase Cloud Messaging configuration as the package for your application.
+
 ### Build instructions for Open Source Development
 If you wish to contribute to this template, the following information may be helpful; otherwise, RHMAP and its build facilities are the preferred solution.
 
