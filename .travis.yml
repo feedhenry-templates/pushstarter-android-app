@@ -17,15 +17,15 @@ android:
     - extra-google-google_play_services
 licenses:
     - android-sdk-license-5be876d5
-
+sudo: false
 env:
   matrix:
     - ANDROID_EMULATOR="Google Inc.:Google APIs:16" ANDROID_ABI=armeabi-v7a                ANDROID_PKGS=addon-google_apis-google-16,sys-img-armeabi-v7a-addon-google_apis-google-16
     - ANDROID_EMULATOR="Google Inc.:Google APIs:17" ANDROID_ABI=armeabi-v7a                ANDROID_PKGS=addon-google_apis-google-17,sys-img-armeabi-v7a-addon-google_apis-google-17
     - ANDROID_EMULATOR="Google Inc.:Google APIs:18" ANDROID_ABI=armeabi-v7a                ANDROID_PKGS=addon-google_apis-google-18,sys-img-armeabi-v7a-addon-google_apis-google-18
-    - ANDROID_EMULATOR="Google Inc.:Google APIs:19" ANDROID_ABI=armeabi-v7a                ANDROID_PKGS=addon-google_apis-google-19,sys-img-armeabi-v7a-addon-google_apis-google-19
-    - ANDROID_EMULATOR="Google Inc.:Google APIs:21" ANDROID_ABI=google_apis/armeabi-v7a    ANDROID_PKGS=addon-google_apis-google-21,sys-img-armeabi-v7a-addon-google_apis-google-21
-    - ANDROID_EMULATOR="Google Inc.:Google APIs:22" ANDROID_ABI=google_apis/armeabi-v7a    ANDROID_PKGS=addon-google_apis-google-22,sys-img-armeabi-v7a-addon-google_apis-google-22
+    - ANDROID_EMULATOR="android-19" ANDROID_ABI=armeabi-v7a                ANDROID_PKGS=addon-google_apis-google-19,sys-img-armeabi-v7a-google_apis-19
+    - ANDROID_EMULATOR="android-21" ANDROID_ABI=google_apis/armeabi-v7a    ANDROID_PKGS=addon-google_apis-google-21,sys-img-armeabi-v7a-google_apis-21
+    - ANDROID_EMULATOR="android-22" ANDROID_ABI=google_apis/armeabi-v7a    ANDROID_PKGS=addon-google_apis-google-22,sys-img-armeabi-v7a-google_apis-22
 
 before_cache:
   - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
@@ -49,7 +49,7 @@ before_script:
   - adb shell input keyevent 82 &
 
 script:
-  - ./gradlew build connectedCheck
+  - ./gradlew connectedTravisDebugAndroidTest
 
 after_script:
   - cat logcat.log; pkill -KILL -f adb
