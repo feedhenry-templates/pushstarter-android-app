@@ -22,7 +22,7 @@ licenses:
     - android-sdk-license-5be876d5
 
 env:
-global:
+  global:
     - ADB_INSTALL_TIMEOUT=10
   matrix:
     - ANDROID_EMULATOR="Google Inc.:Google APIs:16" ANDROID_ABI=armeabi-v7a ANDROID_PKGS=addon-google_apis-google-16,sys-img-armeabi-v7a-addon-google_apis-google-16
