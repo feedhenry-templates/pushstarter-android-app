@@ -38,9 +38,9 @@ license {
 }
 
 dependencies {
-    compile 'com.feedhenry:fh-android-sdk:3.1.0'
+    compile 'com.feedhenry:fh-android-sdk:3.2.0'
     compile 'com.android.support:appcompat-v7:23.1.1'
-    compile 'org.jboss.aerogear:aerogear-android-push:4.0.1'
+    compile 'org.jboss.aerogear:aerogear-android-push:4.0.2'
 }
 
 apply plugin: 'com.google.gms.google-services'
