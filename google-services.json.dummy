@@ -1,27 +1,27 @@
 {
   "project_info": {
-    "project_number": "56909696932",
-    "firebase_url": "https://travis-build-server.firebaseio.com",
-    "project_id": "travis-build-server",
-    "storage_bucket": "travis-build-server.appspot.com"
+    "project_number": "12345678901",
+    "firebase_url": "https://dummy-for-travis.firebaseio.com",
+    "project_id": "dummy-for-travis",
+    "storage_bucket": "dummy-for-travis.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:56909696932:android:faec65ac37447d91",
+        "mobilesdk_app_id": "1:12345678901:android:abcded1234567890",
         "android_client_info": {
           "package_name": "org.feedhenry.pushstarter"
         }
       },
       "oauth_client": [
         {
-          "client_id": "56909696932-kenshhlikkol5l0r7kkuu59bsv5n2iuos.apps.googleusercontent.com",
+          "client_id": "dummy-for-travis.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIbaSyBMpNlz-EL_jahKKEJQdrUidzztg-Jd59g"
+          "current_key": "dummy-for-travis"
         }
       ],
       "services": {

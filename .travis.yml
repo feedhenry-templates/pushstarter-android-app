@@ -36,6 +36,7 @@ cache:
     - $HOME/.gradle/wrapper/
 
 before_install:
+  - cp google-services.json.dummy app/google-services.json
   - echo y | android update sdk -a -u -t ${ANDROID_PKGS:-}
 
 install:
@@ -50,7 +51,7 @@ before_script:
   - adb shell input keyevent 82 &
 
 script:
-  - ./gradlew connectedTravisDebugAndroidTest
+  - ./gradlew build connectedCheck
 
 after_script:
   - cat logcat.log; pkill -KILL -f adb
