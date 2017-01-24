@@ -5,19 +5,25 @@ plugins {
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.2"
+    compileSdkVersion 24
+    buildToolsVersion "24.0.3"
 
     defaultConfig {
         applicationId "org.feedhenry.pushstarter"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         minSdkVersion 16
-        targetSdkVersion 23
+        targetSdkVersion 24
         versionCode 1
         versionName "1.0"
+
+        jackOptions {
+            enabled true
+        }
     }
 
-    lintOptions {
-        abortOnError false
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 
     buildTypes {
@@ -25,6 +31,15 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+
+    packagingOptions {
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+    }
+
+    lintOptions {
+        abortOnError false
     }
 }
 
@@ -34,9 +49,13 @@ license {
 }
 
 dependencies {
-    compile 'com.feedhenry:fh-android-sdk:3.1.0'
-    compile 'com.android.support:appcompat-v7:23.1.1'
-    compile 'org.jboss.aerogear:aerogear-android-push:4.0.1'
+    compile 'com.feedhenry:fh-android-sdk:3.3.0'
+    compile 'com.android.support:appcompat-v7:24.2.1'
+    compile 'com.google.firebase:firebase-messaging:9.8.0'
+    compile 'org.jboss.aerogear:aerogear-android-push:4.0.2'
+
+    androidTestCompile 'com.android.support:support-annotations:24.2.1'
+    androidTestCompile 'com.android.support.test:runner:0.5'
 }
 
 apply plugin: 'com.google.gms.google-services'

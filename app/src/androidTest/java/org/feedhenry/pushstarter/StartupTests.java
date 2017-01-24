@@ -13,20 +13,31 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- package org.feedhenry.pushstarter;
+package org.feedhenry.pushstarter;
 
-import android.test.AndroidTestCase;
+import android.content.Context;
+import android.support.test.InstrumentationRegistry;
+import android.support.test.runner.AndroidJUnit4;
 
 import junit.framework.Assert;
 
-/**
- * Created by summers on 6/25/16.
- */
-public class StartupTests extends AndroidTestCase {
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
 
-    public void testGoogleServices() {
-        Assert.assertNotNull(getContext().getResources().getString(R.string.gcm_defaultSenderId));
+@RunWith(AndroidJUnit4.class)
+public class StartupTests {
+
+    private Context context;
+
+    @Before
+    public void setup() {
+        context = InstrumentationRegistry.getTargetContext();
     }
 
+    @Test
+    public void testGoogleServices() {
+        Assert.assertNotNull(context.getResources().getString(R.string.gcm_defaultSenderId));
+    }
 
 }
