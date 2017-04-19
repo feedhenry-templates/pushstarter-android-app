@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "56909696932",
+    "firebase_url": "https://travis-build-server.firebaseio.com",
+    "project_id": "travis-build-server",
+    "storage_bucket": "travis-build-server.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:56909696932:android:faec65ac37447d91",
+        "android_client_info": {
+          "package_name": "org.feedhenry.pushstarter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "56909696932-kenshhlikkol5l0r7kkuu59bsv5n2iuos.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIbaSyBMpNlz-EL_jahKKEJQdrUidzztg-Jd59g"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
