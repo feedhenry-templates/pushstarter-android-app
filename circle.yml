@@ -1,0 +1,27 @@
+machine:
+  java:
+    version: oraclejdk8
+  environment:
+    ANDROID_SDK: "android-25"
+    BUILD_TOOLS: "25.0.3"
+
+dependencies:
+  pre:
+    # Android SDK Platform
+    - if [ ! -d "/usr/local/android-sdk-linux/platforms/$ANDROID_SDK" ]; then echo y | android update sdk --no-ui --all --filter "$ANDROID_SDK"; fi
+    # Android SDK Build-tools
+    - if [ ! -d "/usr/local/android-sdk-linux/build-tools/$BUILD_TOOLS" ]; then echo y | android update sdk --no-ui --all --filter "build-tools-$BUILD_TOOLS"; fi
+    # Android m2repository and extra support
+    - echo y | android update sdk --no-ui --all --filter "extra-google-m2repository, extra-android-m2repository, extra-android-support"
+
+  cache_directories:
+    - /usr/local/android-sdk-linux
+    - ~/.gradle
+
+test:
+  pre:
+    # Copy a dummy google-services.json to the app folder
+    - cp google-services.json.dummy app/google-services.json
+
+  override:
+    - ./gradlew clean build
