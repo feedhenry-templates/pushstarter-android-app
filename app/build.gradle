@@ -9,7 +9,7 @@ android {
     buildToolsVersion '26.0.1'
 
     defaultConfig {
-        applicationId "org.feedhenry.welcome"
+        applicationId "org.feedhenry.pushstarter"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         minSdkVersion 16
         targetSdkVersion 26

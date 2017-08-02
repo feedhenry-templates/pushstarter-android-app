@@ -86,7 +86,6 @@ public class NotificationBarMessageHandler implements MessageHandler {
 
         NotificationManager notificationManager =
                 (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-        // The id of the channel.
 
         // The user-visible name of the channel.
         CharSequence name = context.getString(R.string.channel_name);
