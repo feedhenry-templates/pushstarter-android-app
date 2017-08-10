@@ -114,7 +114,6 @@ public class NotificationBarMessageHandler implements MessageHandler {
         String pushMessageId = extractPushMessageId(bundle);
 
         Intent intent = new Intent(context, MessagesActivity.class)
-                .addFlags(PendingIntent.FLAG_UPDATE_CURRENT)
                 .putExtra(UnifiedPushMessage.ALERT_KEY, message)
                 .putExtra(UnifiedPushMessage.PUSH_MESSAGE_ID, pushMessageId)
                 .putExtra(PushStarterApplication.PUSH_MESSAGE_FROM_BACKGROUND, true);
