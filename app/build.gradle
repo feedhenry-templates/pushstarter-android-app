@@ -2,11 +2,11 @@ plugins {
     id "com.github.hierynomus.license" version "0.12.0"
 }
 
-apply plugin: 'com.android.application'
+apply plugin: "com.android.application"
 
 android {
     compileSdkVersion 26
-    buildToolsVersion '26.0.2'
+    buildToolsVersion "26.0.2"
 
     defaultConfig {
         applicationId "org.feedhenry.pushstarter"
@@ -27,13 +27,13 @@ android {
     buildTypes {
         release {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
         }
     }
 
     packagingOptions {
-        exclude 'META-INF/NOTICE'
-        exclude 'META-INF/LICENSE'
+        exclude "META-INF/NOTICE"
+        exclude "META-INF/LICENSE"
     }
 
     lintOptions {
@@ -42,19 +42,23 @@ android {
 }
 
 license {
-    header rootProject.file('misc/HEADER')
+    header rootProject.file("misc/HEADER")
     strictCheck true
 }
 
-dependencies {
-    compile 'com.android.support:appcompat-v7:26.0.0'
-    compile 'org.jboss.aerogear:aerogear-android-push:4.2.0'
-    compile 'com.google.firebase:firebase-messaging:11.0.1'
-    compile 'com.feedhenry:fh-android-sdk:3.3.3'
-
-    androidTestCompile 'com.android.support:support-annotations:26.0.0'
-    androidTestCompile 'com.android.support.test:runner:1.0.0'
-    androidTestCompile 'com.android.support.test:rules:1.0.0'
+ext {
+    android_support_library = "26.1.0"
+    android_support_test_library = "1.0.1"
 }
 
-apply plugin: 'com.google.gms.google-services'
+dependencies {
+    implementation "com.android.support:appcompat-v7:$android_support_library"
+    implementation "com.feedhenry:fh-android-sdk:4.0.0"
+    implementation 'com.google.firebase:firebase-messaging:11.4.2'
+
+    androidTestImplementation "com.android.support:support-annotations:$android_support_library"
+    androidTestImplementation "com.android.support.test:runner:$android_support_test_library"
+    androidTestImplementation "com.android.support.test:rules:$android_support_test_library"
+}
+
+apply plugin: "com.google.gms.google-services"
