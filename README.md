@@ -1,15 +1,16 @@
 # Android Push Template
-[![Build Status](https://travis-ci.org/feedhenry-templates/pushstarter-android-app.png)](https://travis-ci.org/feedhenry-templates/pushstarter-android-app)
----------
-Author: Daniel Passos (dpassos@redhat.com, daniel@passos.me)     
-Level: Intermediate  
-Technologies: Java, Android, RHMAP, GCM Push Messages  
-Summary: A demonstration of how to receive a GCM push message from RHMAP  
-Community Project : [Feed Henry](http://feedhenry.org/)  
-Target Product: RedHat Mobile Application Platform aka RHMAP    
+
+[![circle-ci](https://img.shields.io/circleci/project/github/feedhenry-templates/pushstarter-android-app/master.svg)](https://circleci.com/gh/feedhenry-templates/pushstarter-android-app)
+
+Author: Daniel Passos (dpassos@redhat.com)        
+Level: Intermediate    
+Technologies: Java, Android, RHMAP, FCM Push Messages     
+Summary: A demonstration of how to receive a GCM push message from RHMAP     
+Community Project : [Feed Henry](http://feedhenry.org/)    
+Target Product: RedHat Mobile Application Platform aka RHMAP       
 Product Versions: RHMAP 3.8.0+   
-Source: https://github.com/feedhenry-templates/pushstarter-android-app  
-Prerequisites: fh-android-sdk : 3.0.+, Android Studio : 1.4.0 or newer, Android SDK : 22+ or newer
+Source: https://github.com/feedhenry-templates/pushstarter-android-app     
+Prerequisites: fh-android-sdk: 4.0.+, Android Studio: 3.0.0 or newer, Android SDK: 26+ or newer   
 
 ## What is it?
 
